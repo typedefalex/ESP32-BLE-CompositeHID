@@ -10,6 +10,8 @@
 static const char *LOG_TAG = "XboxGamepadDevice";
 #endif
 
+#define constrain(amt,low,high) ((amt)<(low)?(low):((amt)>(high)?(high):(amt)))
+
 XboxGamepadCallbacks::XboxGamepadCallbacks(XboxGamepadDevice* device) : _device(device)
 {
 }
@@ -75,7 +77,7 @@ XboxGamepadDevice::~XboxGamepadDevice() {
     }
 
     if(_config){
-        delete _config;
+        // todo delete _config;
         _config = nullptr;
     }
 }

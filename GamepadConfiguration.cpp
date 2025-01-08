@@ -9,6 +9,9 @@
 static const char *LOG_TAG = "GamepadConfiguration";
 #endif
 
+#define lowByte(w) ((uint8_t) ((w) & 0xff))
+#define highByte(w) ((uint8_t) ((w) >> 8))
+
 GamepadConfiguration::GamepadConfiguration() : 
     BaseCompositeDeviceConfiguration(GAMEPAD_REPORT_ID),
     _controllerType(CONTROLLER_TYPE_GAMEPAD),
@@ -241,7 +244,7 @@ size_t GamepadConfiguration::makeDeviceReport(uint8_t* buffer, size_t bufferSize
         if (this->getAxisCount() > 0)
         {
             // USAGE_PAGE (Generic Desktop)
-            tempHidReportDescriptor[reportSize++] = USAGE_PAGE(1); 0x05;
+            tempHidReportDescriptor[reportSize++] = USAGE_PAGE(1);// 0x05;
             tempHidReportDescriptor[reportSize++] = 0x01; // Generic desktop controls
 
             // USAGE (Pointer)
@@ -415,7 +418,7 @@ size_t GamepadConfiguration::makeDeviceReport(uint8_t* buffer, size_t bufferSize
             }
 
             // INPUT (Data,Var,Abs)
-            tempHidReportDescriptor[reportSize++] = HIDINPUT(1); 0x81;
+            tempHidReportDescriptor[reportSize++] = HIDINPUT(1); //0x81;
             tempHidReportDescriptor[reportSize++] = 0x02;
 
             // END_COLLECTION (Physical)

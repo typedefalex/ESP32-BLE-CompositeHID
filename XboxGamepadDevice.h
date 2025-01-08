@@ -2,7 +2,7 @@
 #define XBOX_GAMEPAD_DEVICE_H
 
 #include <NimBLECharacteristic.h>
-#include <Callback.h>
+#include "Callback.h"
 #include <mutex>
 
 #include "BLEHostConfiguration.h"
@@ -10,6 +10,8 @@
 #include "GamepadDevice.h"
 #include "XboxDescriptors.h"
 #include "XboxGamepadConfiguration.h"
+#include "WString.h"
+
 
 // Button bitmasks
 #define XBOX_BUTTON_A 0x01
@@ -195,9 +197,10 @@ private:
 
     XboxGamepadInputReportData _inputReport;
 
+    XboxGamepadDeviceConfiguration* _config;
     NimBLECharacteristic* _extra_input;
     XboxGamepadCallbacks* _callbacks;
-    XboxGamepadDeviceConfiguration* _config;
+    
 
     // Threading
     std::mutex _mutex;

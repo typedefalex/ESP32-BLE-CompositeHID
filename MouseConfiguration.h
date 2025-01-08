@@ -22,8 +22,8 @@ class MouseConfiguration : public BaseCompositeDeviceConfiguration
 {
 private:
     uint16_t _buttonCount;
-    bool _whichAxes[MOUSE_POSSIBLE_AXIS_COUNT];
     uint16_t _mouseButtonCount;
+    bool _whichAxes[MOUSE_POSSIBLE_AXIS_COUNT];
 
 public:
     MouseConfiguration();

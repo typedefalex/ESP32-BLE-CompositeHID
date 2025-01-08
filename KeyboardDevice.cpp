@@ -18,7 +18,7 @@ KeyboardCallbacks::KeyboardCallbacks(KeyboardDevice* device) :
 void KeyboardCallbacks::onWrite(NimBLECharacteristic* pCharacteristic, NimBLEConnInfo& connInfo)
 {
     KeyboardOutputReport ledReport = pCharacteristic->getValue<uint8_t>();
-    ESP_LOGD(LOG_TAG, "KeyboardDevice::onWrite - LED Report: %d", ledReport);
+    ESP_LOGD(LOG_TAG, "KeyboardDevice::onWrite");
     _device->onLED.fire(ledReport);
 }
 

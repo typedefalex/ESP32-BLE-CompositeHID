@@ -1,7 +1,7 @@
 #ifndef COMPOSITE_CONFIG_H
 #define COMPOSITE_CONFIG_H
 
-#include <Arduino.h>
+#include <functional>
 //#include <HIDKeyboardTypes.h>
 #include <NimBLECharacteristic.h>
 #include <NimBLEHIDDevice.h>
